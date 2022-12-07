@@ -8,7 +8,6 @@ function heapSort(arr) {
       if (arr[root] < arr[c]) {
         //자식 노드가 부모 노드보다 크면
         [arr[root], arr[c]] = [arr[c], arr[root]]; //swap
-        console.log("heapify : " + arr);
       }
       c = root; //자식이 부모로 이동
     } while (c >= 0);
@@ -17,7 +16,6 @@ function heapSort(arr) {
   for (let i = arr.length - 1; i >= 0; i--) {
     //루트 노드와 가장 마지막 노드를 swap
     [arr[0], arr[i]] = [arr[i], arr[0]];
-    console.log("swap : " + arr);
     let root = 0;
     let c = 1;
     do {
@@ -30,12 +28,9 @@ function heapSort(arr) {
       //루트보다 자식이 크면 교환
       if (arr[root] < arr[c] && c < i) {
         [arr[root], arr[c]] = [arr[c], arr[root]];
-        console.log(arr);
       }
       root = c; //c를 루트로 이동시킨다.
     } while (c < i);
   }
   return arr;
 }
-
-console.log(heapSort([1, 18, 397, 5123, 321, 2135, 534]));
